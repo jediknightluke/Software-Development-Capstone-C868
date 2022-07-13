@@ -1,0 +1,15 @@
+﻿<Window x:Class="BOP3_Task_1_C_Sharp_Application_Development.TimingsReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOP3_Task_1_C_Sharp_Application_Development"
+        mc:Ignorable="d"
+        Title="TimingsReport" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="106,22,0,0" Text="Appointment Counts For Each Time Slot" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="306" FontWeight="Bold" FontSize="16"/>
+        <DataGrid Margin="41,95,39,36" x:Name="timingsForAppointmentsGrid" ItemsSource="{Binding}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="504,16,0,0" Text="This report lists each time slot used and the count of how many appointments have been scheduled for that timeslot. This report will help users determine the most active time of the day." TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="252" FontWeight="Bold" FontSize="11" TextDecorations="{x:Null}" FontStyle="Normal"/>
+
+    </Grid>
+</Window>

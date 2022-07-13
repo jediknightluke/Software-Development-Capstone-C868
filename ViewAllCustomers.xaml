@@ -1,0 +1,15 @@
+﻿<Window x:Class="BOP3_Task_1_C_Sharp_Application_Development.ViewAllCustomers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOP3_Task_1_C_Sharp_Application_Development"
+        mc:Ignorable="d"
+        Title="ViewAllCustomers" Height="470" Width="575">
+    <Grid>
+        <DataGrid x:Name="viewAllCustomersCalendar" HorizontalAlignment="Center" Height="257" Margin="0,100,0,0" VerticalAlignment="Top" Width="424" ItemsSource="{Binding}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="258,62,0,0" Text="View All Customers" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontWeight="Bold"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="445,402,0,0" VerticalAlignment="Top" Width="63" Click="exitButton_Click"/>
+
+    </Grid>
+</Window>
