@@ -6,43 +6,55 @@
         xmlns:local="clr-namespace:BOP3_Task_1_C_Sharp_Application_Development"
         mc:Ignorable="d"
         Title="Dashboard" Height="500" Width="800">
-    <Grid Margin="0,0,1,2">
-        
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="241*"/>
-            <ColumnDefinition Width="559*"/>
-        </Grid.ColumnDefinitions>
-        
-        
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="154" Margin="16,67,0,0" VerticalAlignment="Top" Width="129"/>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="164" Margin="16,255,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button Content="Create" HorizontalAlignment="Left" Margin="39,90,0,0" VerticalAlignment="Top" Width="82" Click="createCustomerButton_Click"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="39,119,0,0" VerticalAlignment="Top" Width="82" Click="updateCustomerButton_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="39,152,0,0" VerticalAlignment="Top" Width="82" Click="deleteCustomerButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="18,50,0,0" Text="Customer Records" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,236,0,0" Text="Reports" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontWeight="Bold"/>
-        <DataGrid IsReadOnly="True" Grid.Column="1" Name="appointmentCalendar" HorizontalAlignment="Left" Height="257" Margin="66,120,0,0" VerticalAlignment="Top" Width="444" ItemsSource="{Binding}"/>
-        <RadioButton Name ="weekRadioButton" Content="Week View" Grid.Column="1" HorizontalAlignment="Left" Margin="140,98,0,0" VerticalAlignment="Top" Checked="weekRadioButton_Checked"/>
-        <RadioButton Name="monthViewRadioButton" Content="Month View" Grid.Column="1" HorizontalAlignment="Left" Margin="239,98,0,0" VerticalAlignment="Top" Checked="MonthViewRadioButton_Checked"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="117,393,0,0" VerticalAlignment="Top" Width="82" Grid.Column="1" Click="addAppointment_Click"/>
-        <Button Content="Update" HorizontalAlignment="Center" Margin="0,393,0,0" VerticalAlignment="Top" Width="82" Grid.Column="1" Click="updateAppointment_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="356,393,0,0" VerticalAlignment="Top" Width="82" Grid.Column="1" Click="deleteAppointment_Click"/>
-        <Button Content="Number of Appointments&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,283,0,0" VerticalAlignment="Top" Width="166" Height="24" Click="numberOfApps_Click"/>
-        <Button Content="Consultant Schedules" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Width="166" Click="userSchedules_Click"/>
-        <Button Content="Timings Report" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Width="166" Click="timingsReport_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="451" Height="36" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="20" Text="The Office of Doctors and Associates LLC"/>
-        <TextBlock Name="WelcomeBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="381,14,0,0" Text="Welcome back, " TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="151" FontStyle="Italic" FontWeight="Bold"/>
-        <Button Content="View All" HorizontalAlignment="Left" Margin="39,186,0,0" VerticalAlignment="Top" Width="82" Click="viewAllButton_Click"/>
-        <RadioButton x:Name="viewAllRadioButton"  Content="View All" Grid.Column="1" HorizontalAlignment="Left" Margin="338,99,0,0" VerticalAlignment="Top" Checked="viewAllRadioButton_Checked"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="166,65,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="237" Height="25" FontWeight="Bold" FontSize="14" TextChanged="SearchBox_TextChanged" BorderThickness="2" SelectedText=""/>
+    <Grid >
 
-        
-        
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240*"></ColumnDefinition>
+            <ColumnDefinition Width="293*"></ColumnDefinition>
+            <ColumnDefinition Width="267*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="305*"></RowDefinition>
+            <RowDefinition Height="68*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="107" Margin="5,3,0,0" VerticalAlignment="Top" Width="247" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="247" Margin="6,125,0,0" Grid.ColumnSpan="2"/>
+
+        <Button Content="Create"  HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Width="117" Click="createCustomerButton_Click" Height="27" Grid.Row="1"/>
+        <Button Grid.Column="2" Content="Update" HorizontalAlignment="Left" Margin="117,156,0,0" VerticalAlignment="Top" Width="82" Click="updateCustomerButton_Click" Height="30" Grid.Row="2"/>
+        <Button  Content="Delete" HorizontalAlignment="Left" Margin="129,30,0,0" VerticalAlignment="Top" Width="110" Click="deleteCustomerButton_Click" Height="27"  RenderTransformOrigin="0.476,0.483" Grid.Row="1"/>
+        <Button Grid.Column="0" Content="View All" HorizontalAlignment="Left" Margin="13,30,0,0" VerticalAlignment="Top" Width="91" Click="viewAllButton_Click" Height="27" Grid.Row="1"/>
+
+
+        <DataGrid IsReadOnly="True" Grid.Column="1" Name="appointmentCalendar" ColumnWidth="*" HorizontalContentAlignment="Stretch" Height="257" Margin="83,4,16,0" VerticalAlignment="Top" ItemsSource="{Binding}" Grid.ColumnSpan="2" RenderTransformOrigin="0.502,0.456" Grid.Row="1"/>
+
+        <RadioButton Name ="weekRadioButton" Content="Week View" Grid.Column="1" HorizontalAlignment="Left" Margin="130,90,0,0" VerticalAlignment="Top" Checked="weekRadioButton_Checked" Height="15" Width="77"/>
+        <RadioButton Name="monthViewRadioButton" Content="Month View" Grid.Column="1" HorizontalAlignment="Left" Margin="244,90,0,0" VerticalAlignment="Top" Checked="MonthViewRadioButton_Checked" Height="18" Width="88" Grid.ColumnSpan="2" RenderTransformOrigin="0.542,0.542"/>
+
+        <Button Content="Add" HorizontalAlignment="Left" Margin="278,269,0,0" VerticalAlignment="Top" Width="88" Click="addAppointment_Click" Height="25" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button Content="Update" HorizontalAlignment="Right" Margin="0,269,12,0" VerticalAlignment="Top" Width="82" Click="updateAppointment_Click" Height="24" Grid.Row="1" Grid.Column="2"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="82,269,0,0" VerticalAlignment="Top" Width="82" Click="deleteAppointment_Click" Height="22" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="Number of Appointments&#xD;&#xA;" HorizontalAlignment="Left" Margin="46,258,0,0" VerticalAlignment="Top" Width="166" Height="24" Click="numberOfApps_Click" Grid.Row="1"/>
+        <Button Content="Consultant Schedules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="166" Click="userSchedules_Click" Height="27" Grid.Row="1" Margin="47,217,0,0"/>
+        <Button Content="Timings Report" HorizontalAlignment="Left" VerticalAlignment="Top" Width="166" Click="timingsReport_Click" Height="29" Grid.Row="1" Margin="47,176,0,0"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="9,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="451" Height="36" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="20" Text="The Office of Doctors and Associates LLC"/>
+        <TextBlock Name="WelcomeBlock" HorizontalAlignment="Left" Margin="10,0,0,0" Text="Welcome back, " TextWrapping="Wrap" VerticalAlignment="Center" Height="23" Width="151" FontStyle="Italic" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,1,0,0" Text="Customer Records" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontWeight="Bold" Height="16" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="103,141,0,0" Text="Reports" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" FontWeight="Bold" Height="17" Grid.Row="1"/>
+
+
+        <RadioButton x:Name="viewAllRadioButton"  Content="View All" Grid.Column="2" HorizontalAlignment="Left" Margin="62,91,0,0" VerticalAlignment="Top" Checked="viewAllRadioButton_Checked" Height="27" Width="102" Grid.RowSpan="2"/>
+
+        <TextBox x:Name="SearchBox" Grid.Column="1" HorizontalAlignment="Left" Margin="179,55,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="237" Height="25" FontWeight="Bold" FontSize="14" TextChanged="SearchBox_TextChanged" BorderThickness="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.489,0.522"/>
+        <Button  Content="Exit" HorizontalAlignment="Left" Margin="129,29,0,0" VerticalAlignment="Top" Width="110" Click="deleteCustomerButton_Click" Height="27"  RenderTransformOrigin="0.477,0.667" Grid.Column="2" Grid.Row="2"/>
+
+
     </Grid>
-    
-    
+
+
 </Window>
     
     

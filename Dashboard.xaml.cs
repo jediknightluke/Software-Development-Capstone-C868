@@ -235,6 +235,19 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+            foreach (DashboardLayout part in getCalendar("week").OrderByDescending(x => x.AppointmentID))
+            {
+                if (part.AppointmentType.Contains(SearchBox.Text))
+                {
+                    //filterModeLisst.Add(part);
+                }
+            }
+
+            //partsGrid.ItemsSource = filterModeLisst.ToList();
+
+
         }
+
+
     }
 }
