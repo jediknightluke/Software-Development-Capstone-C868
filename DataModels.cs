@@ -4,17 +4,17 @@ using System.Text;
 
 namespace BOP3_Task_1_C_Sharp_Application_Development
 {
-    class DataModels
+    public class DataModels
     {
     }
 
-    class TimingsReportDataClass
+    public class TimingsReportDataClass
     {
         public string time { get; set; }
         public string count { get; set; }
     }
 
-    class Record
+    public class Record
     {
 
         public DateTime timestamp { get; set; }
@@ -29,7 +29,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
     }
 
-    class UpdateAppointmentDataClass
+    public class UpdateAppointmentDataClass
     {
         public int AppointmentID { get; set; }
         public int CustomerID { get; set; }
@@ -39,7 +39,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
     }
 
-    class AppointmentByMonthDataClass
+    public class AppointmentByMonthDataClass
     {
         public string MonthYear { get; set; }
         public string Type { get; set; }
@@ -47,7 +47,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
     }
 
-    class CreateCustomerRecordDataClass
+    public class CreateCustomerRecordDataClass
     {
         public int customerID { get; set; }
         public string customerName { get; set; }
@@ -60,7 +60,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
     }
 
-    class CustomerDetailsDataClass
+    public class CustomerDetailsDataClass
     {
         public string customerName { get; set; }
         public int customerId { get; set; }
@@ -75,7 +75,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         public string country { get; set; }
     }
 
-    class UserReportsDataClass
+    public class UserReportsDataClass
     {
         public string userName { get; set; }
         public string type { get; set; }
@@ -85,7 +85,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
     }
 
-    class ViewAllCustomersDataCall
+    public class ViewAllCustomersDataCall
     {
         public int customerId { get; set; }
         public string customerName { get; set; }
@@ -94,14 +94,14 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         public string createdBy { get; set; }
     }
 
-    class AppointmentReminderDataClass
+    public class AppointmentReminderDataClass
     {
         public bool trueFalse { get; set; }
         public string customerName { get; set; }
         public DateTime start { get; set; }
     }
 
-    class AppointmentDateCheckDataClass
+    public class AppointmentDateCheckDataClass
     {
         public DateTime start { get; set; }
         public DateTime end { get; set; }

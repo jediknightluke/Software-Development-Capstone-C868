@@ -5,6 +5,11 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Software Development Capstone C868", "Software Development Capstone C868.csproj", "{836ACD6D-1277-46A8-B512-D1B7B65CD104}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapstoneTest", "..\CapstoneTest\CapstoneTest.csproj", "{2D89F59F-A0FE-4A2C-90FE-F9FD8F918DAF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{836ACD6D-1277-46A8-B512-D1B7B65CD104} = {836ACD6D-1277-46A8-B512-D1B7B65CD104}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{836ACD6D-1277-46A8-B512-D1B7B65CD104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{836ACD6D-1277-46A8-B512-D1B7B65CD104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{836ACD6D-1277-46A8-B512-D1B7B65CD104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D89F59F-A0FE-4A2C-90FE-F9FD8F918DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D89F59F-A0FE-4A2C-90FE-F9FD8F918DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D89F59F-A0FE-4A2C-90FE-F9FD8F918DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D89F59F-A0FE-4A2C-90FE-F9FD8F918DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

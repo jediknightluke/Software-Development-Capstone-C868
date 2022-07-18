@@ -90,8 +90,8 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             passwordTextBlock.Text = "Password";
             errorLabel = "The username and password did not match";
             loginButton.Content = "Login";
-            projectNameTextBlock.Text = "BOP3 Task 1: C# Application Development";
-            classNameTextBlock.Text = "Software II – Advanced C# – C969";
+            projectNameTextBlock.Text = "Software Development Capstone(RYM2) - Task 2";
+            classNameTextBlock.Text = "Software Development Capstone C868";
             studentNameTextBlock.Text = "By: Luke Melton";
         }
 

@@ -16,12 +16,12 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 {
 
 
-        class SharedDataHelp
+       public class SharedDataHelp
         {
             private static int _currentUserId;
             private static string _currentUserName;
             //public static string conString = "server=127.0.0.1 ;database=client_schedule;uid=sqlUser;pwd=Passw0rd!;";
-            public static string conString = "server=127.0.0.1;database=u05jyp;uid=root;pwd=root";
+            public static string conString = "server=127.0.0.1;database=u05jyp;uid=root;pwd=test";
             TimeZone localZone = TimeZone.CurrentTimeZone;
 
 
@@ -218,7 +218,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
                 return customerDetails;
             }
 
-            public static void CreateCustomer(CreateCustomerRecordDataClass record, int addressId)
+            public static bool CreateCustomer(CreateCustomerRecordDataClass record, int addressId)
             {
 
             int recId = createID("customer");
@@ -245,14 +245,26 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
                                  )";
 
-            MySqlConnection c = new MySqlConnection(conString);
-            c.Open();
-            MySqlCommand cmd = new MySqlCommand(query, c);
-            cmd.ExecuteNonQuery();
-            c.Close();
+            try
+            {
+
+
+                MySqlConnection c = new MySqlConnection(conString);
+                c.Open();
+                MySqlCommand cmd = new MySqlCommand(query, c);
+                cmd.ExecuteNonQuery();
+                c.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
 
 
         }
+
+
 
         public static bool UpdateCustomer(CustomerDetailsDataClass record)
         {
