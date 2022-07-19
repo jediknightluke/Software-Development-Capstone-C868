@@ -20,9 +20,15 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         {
             private static int _currentUserId;
             private static string _currentUserName;
-            //public static string conString = "server=127.0.0.1 ;database=client_schedule;uid=sqlUser;pwd=Passw0rd!;";
-            public static string conString = "server=127.0.0.1;database=u05jyp;uid=root;pwd=test";
             TimeZone localZone = TimeZone.CurrentTimeZone;
+            //public static string conString = "server=127.0.0.1 ;database=client_schedule;uid=sqlUser;pwd=Passw0rd!;";
+
+            public static string uid = "root";
+            public static string pwd = "root";
+            public static string server = "127.0.0.1";
+            public static string database = "u05jyp";
+            public static string conString = $"server={server};database={database};uid={uid};pwd={pwd}";
+
 
 
         public static int getCurrentUserId()
