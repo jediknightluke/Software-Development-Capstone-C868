@@ -23,6 +23,8 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
     {
         public MainWindow loginForm;
 
+        public string calendarSet;
+
         public class DashboardLayout
         {
             public string UserName { get; set; }
@@ -38,7 +40,10 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             InitializeComponent();
             SharedDataHelp.LogToFile(String.Format("User {0} Logged in: {1}", SharedDataHelp.getCurrentUserName(), DateTime.Now.ToString()));
             WelcomeBlock.Text = "Welcome back, " + SharedDataHelp.getCurrentUserName() + "!";
+
+            //Setting Calendar
             weekRadioButton.IsChecked = true;
+            calendarSet = "week";
             appointmentCalendar.DataContext = getCalendar("week").OrderByDescending(x => x.AppointmentID); // Lambda Function to sort Calendar results
 
             AppointmentReminderDataClass appointmentCheck = SharedDataHelp.AppointmentReminders();
@@ -101,7 +106,8 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             if (viewType.Equals("all"))
             {
                 query = $@"SELECT a.customerId, a.type, a.start, a.end, a.appointmentId, u.userName 
-                            FROM appointment a";
+                            FROM appointment a
+                            JOIN user u on a.userId = u.userId";
             }
 
             MySqlConnection c = new MySqlConnection(SharedDataHelp.conString);
@@ -157,13 +163,16 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             deleteCustomer.Show();
         }
 
-        private void MainForm_FormClosing(object sender)
+        private void MainForm_FormClosing(object sender, EventArgs e)
         {
-            loginForm.Close();
+            Close();
         }
 
         private void weekRadioButton_Checked(object sender, EventArgs e)
         {
+            SearchBox.Text = "";
+            appointmentCalendar.DataContext = null;
+            calendarSet = "week";
             appointmentCalendar.DataContext = getCalendar("week").OrderByDescending(x => x.StartTime);
         }
 
@@ -209,6 +218,9 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         {
             if (monthViewRadioButton.IsChecked == true)
             {
+                SearchBox.Text = "";
+                appointmentCalendar.DataContext = null;
+                calendarSet = "month";
                 appointmentCalendar.DataContext = getCalendar("month");
             }
         }
@@ -220,6 +232,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
 
         private void viewAllButton_Click(object sender, RoutedEventArgs e)
         {
+
             ViewAllCustomers viewAllCustomers = new ViewAllCustomers();
             viewAllCustomers.Show();
         }
@@ -228,22 +241,44 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         {
             if (viewAllRadioButton.IsChecked == true)
             {
+                SearchBox.Text = "";
+                appointmentCalendar.DataContext = null;
+                calendarSet = "all";
                 appointmentCalendar.DataContext = getCalendar("all").OrderByDescending(x => x.StartTime);
             }
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            List<DashboardLayout> searchLayout = new List<DashboardLayout>();
+            List<DashboardLayout> returnedLayout = getCalendar(calendarSet);
 
-            foreach (DashboardLayout part in getCalendar("week").OrderByDescending(x => x.AppointmentID))
+            foreach (DashboardLayout part in getCalendar(calendarSet).OrderByDescending(x => x.AppointmentID))
             {
-                if (part.AppointmentType.Contains(SearchBox.Text))
+                if (part.CustomerID.Contains(SearchBox.Text) ||
+                    part.AppointmentType.Contains(SearchBox.Text) ||
+                    part.StartTime.Contains(SearchBox.Text) ||
+                    part.EndTime.Contains(SearchBox.Text) ||
+                    part.AppointmentID.Contains(SearchBox.Text) ||
+                    part.UserName.Contains(SearchBox.Text)
+                    )
                 {
-                    //filterModeLisst.Add(part);
+                    searchLayout.Add(part);
                 }
             }
 
-            //partsGrid.ItemsSource = filterModeLisst.ToList();
+            appointmentCalendar.ItemsSource = searchLayout;
+
+
+        }
+
+        private void SearchBox_TextChangedTEST(object sender, TextChangedEventArgs e)
+        {
+            List<DashboardLayout> searchLayout = new List<DashboardLayout>();
+            List<DashboardLayout> returnedLayout = getCalendar(calendarSet);
+
+
+            appointmentCalendar.ItemsSource = searchLayout;
 
 
         }
