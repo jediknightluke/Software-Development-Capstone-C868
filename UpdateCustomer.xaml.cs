@@ -121,7 +121,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.ToString());
+                MessageBox.Show("Could not search ID");
             }
 
         }

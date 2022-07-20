@@ -44,7 +44,7 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             //Setting Calendar
             weekRadioButton.IsChecked = true;
             calendarSet = "week";
-            appointmentCalendar.DataContext = getCalendar("week").OrderByDescending(x => x.AppointmentID); // Lambda Function to sort Calendar results
+            getCalendar("week");
 
             AppointmentReminderDataClass appointmentCheck = SharedDataHelp.AppointmentReminders();
             if (appointmentCheck.trueFalse)
@@ -55,6 +55,16 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             {
                 return;
             }
+        }
+
+        public List<DashboardLayout> CalendarController(string Type)
+        {
+            calendarSet = Type;
+            appointmentCalendar.Items.Refresh();
+
+            appointmentCalendar.DataContext = getCalendar(Type);
+            return getCalendar(Type);
+
         }
         static public void reminderCheck(DataGrid calendar)
         {
@@ -171,9 +181,8 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
         private void weekRadioButton_Checked(object sender, EventArgs e)
         {
             SearchBox.Text = "";
-            appointmentCalendar.DataContext = null;
-            calendarSet = "week";
-            appointmentCalendar.DataContext = getCalendar("week").OrderByDescending(x => x.StartTime);
+            appointmentCalendar.DataContext = CalendarController("week");
+            appointmentCalendar.Items.Refresh();
         }
 
         private void addAppointment_Click(object sender, EventArgs e)
@@ -219,9 +228,9 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             if (monthViewRadioButton.IsChecked == true)
             {
                 SearchBox.Text = "";
-                appointmentCalendar.DataContext = null;
-                calendarSet = "month";
-                appointmentCalendar.DataContext = getCalendar("month");
+
+                appointmentCalendar.DataContext = CalendarController("month");
+                appointmentCalendar.Items.Refresh();
             }
         }
 
@@ -242,9 +251,8 @@ namespace BOP3_Task_1_C_Sharp_Application_Development
             if (viewAllRadioButton.IsChecked == true)
             {
                 SearchBox.Text = "";
-                appointmentCalendar.DataContext = null;
-                calendarSet = "all";
-                appointmentCalendar.DataContext = getCalendar("all").OrderByDescending(x => x.StartTime);
+                appointmentCalendar.DataContext = CalendarController("all").OrderByDescending(x => x.StartTime);
+                appointmentCalendar.Items.Refresh();
             }
         }
 
